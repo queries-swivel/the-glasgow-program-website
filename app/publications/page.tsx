@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink, BookOpen, FileText, ArrowRight } from "lucide-react";
 import { Button, SectionHeading } from "@/components/ui";
-import { keyPublications, books, externalResources } from "@/lib/constants";
+import { keyPublications, books, externalResources, type Publication } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Publications",
@@ -10,93 +10,87 @@ export const metadata: Metadata = {
     "Research publications from the University of Glasgow Electrocardiology Section — 424 publications with h-index 77.",
 };
 
-// Additional publications beyond the key ones (grouped by category)
-const publicationCategories = [
+// Additional publications beyond the key ones (grouped by category).
+// Every entry is a real, PubMed-indexed paper — verify each via its PMID link.
+const publicationCategories: {
+  title: string;
+  description: string;
+  publications: Publication[];
+}[] = [
   {
-    title: "Glasgow Program",
-    description: "Research describing the methodology and validation of the automated ECG interpretation system.",
+    title: "Methodology & Validation",
+    description: "Peer-reviewed research describing the methodology and validation of the Glasgow Program.",
     publications: [
       {
-        title: "STEMI Screening Performance with an Updated University of Glasgow ECG Analysis Program",
+        title: "Effects of age, sex, and race on ECG interval measurements",
+        authors: "Macfarlane PW, McLaughlin SC, Devine B, Yang TF",
         journal: "J Electrocardiol",
-        year: 2023,
+        year: 1994,
+        pmid: "7884351",
+        url: "https://pubmed.ncbi.nlm.nih.gov/7884351/",
       },
       {
-        title: "Factors Influencing Automated Limited Lead Detection of Atrial Fibrillation",
-        journal: "J Electrocardiol",
-        year: 2020,
+        title: "Methods for improving the repeatability of automated ECG analysis",
+        authors: "McLaughlin SC, Aitchison TC, Macfarlane PW",
+        journal: "Methods Inf Med",
+        year: 1995,
+        pmid: "7666806",
+        url: "https://pubmed.ncbi.nlm.nih.gov/7666806/",
       },
       {
-        title: "Comparison of automated interval measurements by widely used algorithms",
+        title: "J wave patterns — morphology, prevalence and nomenclature",
+        authors: "Macfarlane PW, Clark EN, Heng JS",
         journal: "J Electrocardiol",
-        year: 2018,
+        year: 2013,
+        pmid: "24075127",
+        url: "https://pubmed.ncbi.nlm.nih.gov/24075127/",
       },
       {
-        title: "Early repolarization patterns and J-wave classifications",
-        journal: "J Electrocardiol",
-        year: 2015,
-      },
-      {
-        title: "Racial differences in ECG measurements",
+        title: "Racial differences in the ECG — selected aspects",
+        authors: "Macfarlane PW, Katibi IA, Hamde ST, et al.",
         journal: "J Electrocardiol",
         year: 2014,
+        pmid: "25193321",
+        url: "https://pubmed.ncbi.nlm.nih.gov/25193321/",
+      },
+      {
+        title: "Comparison of automated interval measurements by widely used algorithms in digital electrocardiographs",
+        authors: "Kligfield P, Badilini F, Denjoy I, et al. (incl. Macfarlane PW)",
+        journal: "Am Heart J",
+        year: 2018,
+        pmid: "29898835",
+        url: "https://pubmed.ncbi.nlm.nih.gov/29898835/",
       },
     ],
   },
   {
     title: "Clinical Trials & Epidemiology",
-    description: "Publications from clinical trials and epidemiological studies supported by the ECG Core Lab.",
+    description: "Landmark trials and studies whose ECGs were processed by the Glasgow ECG Core Lab, co-authored by the Section.",
     publications: [
       {
-        title: "West of Scotland Coronary Prevention Study (WOSCOPS)",
-        journal: "NEJM",
+        title: "Prevention of coronary heart disease with pravastatin in men with hypercholesterolaemia (WOSCOPS)",
+        authors: "Shepherd J, Cobbe SM, Ford I, et al.",
+        journal: "N Engl J Med",
         year: 1995,
-        note: "Landmark statin primary prevention trial",
+        pmid: "7566020",
+        url: "https://pubmed.ncbi.nlm.nih.gov/7566020/",
+        note: "Landmark statin primary-prevention trial",
       },
       {
-        title: "Metabolic syndrome and cardiovascular disease outcomes",
-        journal: "Circulation",
-        year: 2010,
-      },
-      {
-        title: "Atrial fibrillation detection post-stroke",
-        journal: "Lancet Neurol",
-        year: 2018,
-      },
-      {
-        title: "QT interval determinants in population studies",
-        journal: "Heart",
-        year: 2015,
-      },
-      {
-        title: "The PROSPER study (pravastatin in elderly patients)",
+        title: "Pravastatin in elderly individuals at risk of vascular disease (PROSPER): a randomised controlled trial",
+        authors: "Shepherd J, Blauw GJ, Murphy MB, et al.",
         journal: "Lancet",
         year: 2002,
-      },
-    ],
-  },
-  {
-    title: "Methodology & Standards",
-    description: "Research into ECG recording techniques, electrode placement, and measurement standards.",
-    publications: [
-      {
-        title: "Precordial electrode placement in women",
-        authors: "Macfarlane PW, Coleman EN et al.",
-        journal: "J Electrocardiol",
-        year: 2008,
-        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2499893/",
+        pmid: "12457784",
+        url: "https://pubmed.ncbi.nlm.nih.gov/12457784/",
       },
       {
-        title: "Effects of age, sex, and race on ECG interval measurements",
-        journal: "J Electrocardiol",
-        year: 1994,
-        pmid: "7884351",
-      },
-      {
-        title: "Methods for improving the repeatability of automated ECG analysis",
-        journal: "J Electrocardiol",
-        year: 1995,
-        pmid: "7666806",
+        title: "Automatic diagnosis of the 12-lead ECG using a deep neural network",
+        authors: "Ribeiro AH, Ribeiro MH, Paixão GMM, et al. (incl. Macfarlane PW)",
+        journal: "Nat Commun",
+        year: 2020,
+        pmid: "32273514",
+        url: "https://pubmed.ncbi.nlm.nih.gov/32273514/",
       },
     ],
   },
@@ -104,7 +98,7 @@ const publicationCategories = [
 
 export default function PublicationsPage() {
   return (
-    <main className="pt-20 lg:pt-24">
+    <div className="pt-20 lg:pt-24">
       {/* Header */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="section-container">
@@ -114,8 +108,9 @@ export default function PublicationsPage() {
             </h1>
             <p className="mt-6 text-xl text-foreground-muted">
               Research from the Electrocardiology Section has been published in
-              leading peer-reviewed journals including Nature Communications,
-              Circulation, The Lancet, and the Journal of Electrocardiology.
+              leading peer-reviewed journals including the New England Journal
+              of Medicine, The Lancet, Nature Communications, and the Journal of
+              Electrocardiology.
             </p>
 
             <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4">
@@ -144,6 +139,10 @@ export default function PublicationsPage() {
                 </div>
               </div>
             </div>
+            <p className="mt-4 text-xs text-foreground-muted">
+              Bibliometrics from Scopus (Author ID 56689458300), Professor Peter
+              Macfarlane.
+            </p>
           </div>
         </div>
       </section>
@@ -220,6 +219,9 @@ export default function PublicationsPage() {
                       {pub.pmid && (
                         <span className="ml-2">PMID: {pub.pmid}</span>
                       )}
+                      {pub.pmcid && (
+                        <span className="ml-2">PMCID: {pub.pmcid}</span>
+                      )}
                     </p>
                     {pub.note && (
                       <p className="mt-2 text-sm text-primary">{pub.note}</p>
@@ -270,12 +272,31 @@ export default function PublicationsPage() {
                       <h4 className="font-medium text-foreground text-sm">
                         {pub.title}
                       </h4>
+                      {pub.authors && (
+                        <p className="mt-1 text-xs text-foreground-muted">
+                          {pub.authors}
+                        </p>
+                      )}
                       <p className="mt-1 text-xs text-foreground-muted">
                         <span className="italic">{pub.journal}</span>,{" "}
                         {pub.year}
+                        {pub.pmid && (
+                          <span className="ml-2">PMID: {pub.pmid}</span>
+                        )}
                       </p>
-                      {'note' in pub && pub.note && (
+                      {pub.note && (
                         <p className="mt-1 text-xs text-primary">{pub.note}</p>
+                      )}
+                      {pub.url && (
+                        <a
+                          href={pub.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 inline-flex items-center gap-1 text-xs text-primary hover:underline"
+                        >
+                          View on PubMed
+                          <ExternalLink className="h-3 w-3" />
+                        </a>
                       )}
                     </div>
                   ))}
@@ -343,6 +364,6 @@ export default function PublicationsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

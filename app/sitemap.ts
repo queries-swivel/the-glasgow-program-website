@@ -1,27 +1,33 @@
 import { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://glasgowecg.com";
+  const baseUrl = siteConfig.url;
+  const lastModified = new Date();
 
-  const routes = [
-    "",
-    "/algorithm",
-    "/solutions",
-    "/solutions/oem",
-    "/solutions/healthcare",
-    "/solutions/research",
-    "/solutions/ai-partners",
-    "/technology",
-    "/resources",
+  // Priority tiers matched to the live navigation/IA.
+  const primary = ["", "/research", "/program", "/services", "/publications"];
+  const secondary = [
+    "/services/core-lab",
+    "/services/clinical-trials",
+    "/services/licensing",
+    "/training",
     "/team",
-    "/licensing",
     "/contact",
   ];
 
-  return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : route.startsWith("/solutions") ? 0.8 : 0.6,
-  }));
+  return [
+    ...primary.map((route) => ({
+      url: `${baseUrl}${route}`,
+      lastModified,
+      changeFrequency: (route === "" ? "weekly" : "monthly") as "weekly" | "monthly",
+      priority: route === "" ? 1 : 0.8,
+    })),
+    ...secondary.map((route) => ({
+      url: `${baseUrl}${route}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+  ];
 }

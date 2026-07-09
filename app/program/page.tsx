@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function ProgramPage() {
   return (
-    <main className="pt-20 lg:pt-24">
+    <div className="pt-20 lg:pt-24">
       {/* Header */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="section-container">
@@ -279,6 +279,6 @@ export default function ProgramPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Glasgow ECG">
+  <rect width="32" height="32" rx="7" fill="#011451"/>
+  <path d="M3 16.5 H10.5 l1.4 0 l1.6 -7.5 l2.6 15 l2 -7.5 H20.5 l1.4 0 l1.6 -4 l2 8 H29"
+        fill="none" stroke="#FFFFFF" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

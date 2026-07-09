@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui";
 
 export function FinalCTA() {
@@ -48,10 +48,9 @@ export function FinalCTA() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/resources">
+              <Link href="/program">
                 <Button variant="secondary" size="lg">
-                  <Download className="mr-2 h-4 w-4" />
-                  Download Technical Overview
+                  Explore the Program
                 </Button>
               </Link>
             </div>
