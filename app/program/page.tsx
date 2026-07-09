@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check, ExternalLink, FileText } from "lucide-react";
-import { Button, SectionHeading } from "@/components/ui";
+import { Button, SectionHeading, TwelveLeadECG } from "@/components/ui";
 import {
   glasgowProgram,
   diagnosticCapabilities,
@@ -45,6 +45,26 @@ export default function ProgramPage() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Real 12-lead ECG showcase */}
+      <section className="py-16 lg:py-20 bg-surface">
+        <div className="section-container">
+          <SectionHeading
+            title="The 12-lead ECG"
+            subtitle="The Glasgow Program interprets the standard 12-lead recording. Below, a real ECG rendered to scale in the browser — the conventional 3×4 layout with a lead-II rhythm strip, at 25 mm/s and 10 mm/mV."
+          />
+          <div className="mt-10 overflow-hidden rounded-lg border border-border bg-surface p-3 shadow-soft sm:p-5">
+            <TwelveLeadECG src="/data/ecg-ptbxl-00351-afib.json" />
+          </div>
+          <p className="mt-4 max-w-3xl text-xs text-foreground-muted">
+            Example recording — atrial fibrillation — from PTB-XL (Wagner et&nbsp;al.,{" "}
+            <span className="italic">Scientific Data</span> 2020, record 00351),
+            used under CC&nbsp;BY&nbsp;4.0 via PhysioNet. Shown to illustrate the
+            12-lead signal; the interpretation label is the dataset&rsquo;s own, not
+            output of the Glasgow Program.
+          </p>
         </div>
       </section>
 

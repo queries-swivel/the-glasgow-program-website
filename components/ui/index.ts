@@ -9,3 +9,4 @@ export { StatCounter } from "./stat-counter";
 export { LogoStrip } from "./logo-strip";
 export { OutputToggle } from "./output-toggle";
 export { ECGAnimation } from "./ecg-animation";
+export { TwelveLeadECG } from "./twelve-lead-ecg";

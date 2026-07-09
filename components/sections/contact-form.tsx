@@ -19,8 +19,12 @@ const labelClass = "block text-sm font-medium text-foreground mb-2";
 /**
  * Contact form. With no server backend wired up, submission composes a
  * pre-filled email to the Section (mailto) so an enquiry is never silently
- * lost. Swap the handler for a POST to an API route / form service when a
- * backend is available.
+ * lost.
+ *
+ * TODO(backend): replace the mailto compose with a POST to a Next.js API
+ * route (app/api/contact/route.ts) that sends via the University of Glasgow
+ * SMTP relay — keeps enquiries in-house for GDPR. Add spam protection
+ * (honeypot / rate-limit / Cloudflare Turnstile) at the same time.
  */
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
