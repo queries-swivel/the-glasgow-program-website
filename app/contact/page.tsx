@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Mail, MapPin, Phone, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui";
+import { ContactForm } from "@/components/sections/contact-form";
 import { siteConfig, teamMembers, licensingInfo } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="pt-20 lg:pt-24">
+    <div className="pt-20 lg:pt-24">
       {/* Header */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="section-container">
@@ -36,108 +36,7 @@ export default function ContactPage() {
               <h2 className="text-xl font-semibold text-foreground mb-6">
                 Send us a message
               </h2>
-              <form className="space-y-6">
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="firstName"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      First name
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      className="w-full rounded-md border border-border bg-surface px-4 py-2.5 text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="John"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="lastName"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Last name
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      className="w-full rounded-md border border-border bg-surface px-4 py-2.5 text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Smith"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    className="w-full rounded-md border border-border bg-surface px-4 py-2.5 text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                    placeholder="john.smith@institution.ac.uk"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="organisation"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Organisation
-                  </label>
-                  <input
-                    type="text"
-                    id="organisation"
-                    name="organisation"
-                    className="w-full rounded-md border border-border bg-surface px-4 py-2.5 text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                    placeholder="University / Company name"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="interest"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Enquiry type
-                  </label>
-                  <select
-                    id="interest"
-                    name="interest"
-                    className="w-full rounded-md border border-border bg-surface px-4 py-2.5 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                  >
-                    <option value="">Select an option</option>
-                    <option value="clinical-trials">Clinical Trials Support</option>
-                    <option value="licensing">Licensing Enquiry</option>
-                    <option value="research">Research Collaboration</option>
-                    <option value="training">Training Request</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    className="w-full rounded-md border border-border bg-surface px-4 py-2.5 text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary resize-none"
-                    placeholder="Please describe your enquiry..."
-                  />
-                </div>
-                <Button type="submit" className="w-full">
-                  Send Message
-                </Button>
-              </form>
+              <ContactForm />
             </div>
 
             {/* Contact Info */}
@@ -250,6 +149,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

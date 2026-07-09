@@ -13,7 +13,7 @@ export function OrganizationSchema() {
     name: "University of Glasgow Electrocardiology Group",
     alternateName: "Glasgow ECG Program",
     url: siteConfig.url,
-    logo: `${siteConfig.url}/images/logo.png`,
+    logo: `${siteConfig.url}/images/uofg-logo.svg`,
     description: siteConfig.description,
     address: {
       "@type": "PostalAddress",
@@ -43,19 +43,9 @@ export function SoftwareApplicationSchema() {
     applicationCategory: "MedicalApplication",
     operatingSystem: "Cross-platform",
     description: siteConfig.description,
-    offers: {
-      "@type": "Offer",
-      price: "Contact for pricing",
-      priceCurrency: "USD",
-    },
     publisher: {
       "@type": "Organization",
       name: "University of Glasgow Electrocardiology Group",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      ratingCount: "500",
     },
     featureList: [
       "Rhythm & Arrhythmia Detection",

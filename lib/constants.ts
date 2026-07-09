@@ -163,7 +163,7 @@ export const history = {
     {
       year: "1981",
       title: "First Commercial Partnership",
-      description: "University partners with Siemens (now Draeger) to make the technology available for hospital use, marking the beginning of widespread clinical adoption.",
+      description: "University partners with Siemens — whose ECG business is now part of Dräger — to make the technology available for hospital use, marking the beginning of widespread clinical adoption.",
     },
     {
       year: "Late 1980s",
@@ -203,7 +203,7 @@ export const history = {
     {
       year: "Present",
       title: "Continued Research",
-      description: "Over 20 million ECGs interpreted annually using the Glasgow Program. Active clinical trials research including COVID-HEART and CISCO-19 studies. Ongoing refinement of diagnostic algorithms.",
+      description: "Millions of ECGs interpreted annually worldwide using the Glasgow Program. Active clinical trials research including COVID-HEART and CISCO-19 studies. Ongoing refinement of diagnostic algorithms.",
     },
   ],
 };
@@ -217,7 +217,7 @@ export const teamMembers: TeamMember[] = [
     image: "/images/team/peter-macfarlane.jpg",
     email: "peter.macfarlane@glasgow.ac.uk",
     phone: "0141 201 5410",
-    bio: "Professor Macfarlane is Emeritus Professor and Honorary Senior Research Fellow at the University of Glasgow. He served as Professor in Medical Cardiology (1991–1995) and Professor of Electrocardiology (1995–2010). His career has focused on applying computer techniques to ECG interpretation, and the Glasgow Program developed in his laboratory is now used worldwide. His research into ECG variations by age, gender, and ethnicity has influenced international guidelines for the ECG definition of acute myocardial infarction. He established the ECG Core Laboratory supporting national and international clinical trials and epidemiological studies. A Fellow of the Royal Society of Edinburgh and other learned societies, he has served as Treasurer of the International Society of Electrocardiology since its founding in 1983 and was President from 2007–2009.",
+    bio: "Professor Macfarlane is Emeritus Professor and Honorary Senior Research Fellow at the University of Glasgow. He served as Professor in Medical Cardiology (1991–1995) and Professor of Electrocardiology (1995–2010). His career has focused on applying computer techniques to ECG interpretation, and the Glasgow Program developed in his laboratory is now used worldwide. His research into ECG variations by age, gender, and ethnicity has influenced international guidelines for the ECG definition of acute myocardial infarction. He established the ECG Core Laboratory supporting national and international clinical trials and epidemiological studies. A Fellow of the Royal Society of Edinburgh and other learned societies, he has served as Treasurer of the International Society of Electrocardiology and was its President from 2007 to 2009.",
     achievements: [
       "Commander of the Order of the British Empire (CBE, 2014) for Services to Healthcare",
       "Fellow of the Royal Society of Edinburgh (FRSE)",
@@ -344,7 +344,18 @@ export const diagnosticCapabilities = {
 };
 
 // Key publications with PubMed links
-export const keyPublications = [
+export type Publication = {
+  title: string;
+  authors: string;
+  journal: string;
+  year: number;
+  pmid?: string;
+  pmcid?: string;
+  url?: string;
+  note?: string;
+};
+
+export const keyPublications: Publication[] = [
   {
     title: "Methodology of ECG interpretation in the Glasgow program",
     authors: "Macfarlane PW, Devine B, Latif S, McLaughlin S, Shoat DB, Watts MP",
@@ -363,17 +374,17 @@ export const keyPublications = [
   },
   {
     title: "Evaluation of the electrocardiographic criteria for left ventricular hypertrophy",
-    authors: "Macfarlane PW et al.",
-    journal: "J Electrocardiol",
+    authors: "Morrison I, Clark E, Macfarlane PW",
+    journal: "Anadolu Kardiyol Derg",
     year: 2007,
     pmid: "17584713",
     url: "https://pubmed.ncbi.nlm.nih.gov/17584713/",
-    note: "Demonstrated Glasgow-modified Romhilt-Estes score superiority",
+    note: "Assessment of ECG criteria for left ventricular hypertrophy",
   },
   {
-    title: "Localization of accessory pathways in the Wolff-Parkinson-White pattern",
-    authors: "Macfarlane PW et al.",
-    journal: "J Electrocardiol",
+    title: "Localization of accessory pathways in the Wolff-Parkinson-White pattern — physician versus computer interpretation of the same algorithm",
+    authors: "McGavigan AD, Clark E, Quinn FR, Rankin AC, Macfarlane PW",
+    journal: "Pacing Clin Electrophysiol",
     year: 2007,
     pmid: "17669083",
     url: "https://pubmed.ncbi.nlm.nih.gov/17669083/",
@@ -381,10 +392,10 @@ export const keyPublications = [
   },
   {
     title: "Precordial electrode placement in women",
-    authors: "Macfarlane PW, Coleman EN et al.",
-    journal: "J Electrocardiol",
-    year: 2008,
-    pmid: "PMC2499893",
+    authors: "Macfarlane PW, Colaco R, Stevens K, Reay P, Beckett C, Aitchison T",
+    journal: "Neth Heart J",
+    year: 2003,
+    pmcid: "PMC2499893",
     url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2499893/",
   },
 ];
@@ -397,7 +408,7 @@ export const books = [
     publisher: "Springer",
     edition: "2nd Edition",
     note: "Definitive reference work in 4 volumes covering all aspects of electrocardiology",
-    url: "https://link.springer.com/referencework/10.1007/978-0-85729-880-8",
+    url: "https://doi.org/10.1007/978-1-84882-046-3",
   },
 ];
 
@@ -431,12 +442,12 @@ export const coreLabServices = {
     { name: "Scottish Family Health Study", type: "Epidemiological" },
     { name: "Whitehall II Phase 12", type: "Epidemiological" },
     { name: "British Regional Heart Study", type: "Collaborative" },
-    { name: "Tromso Study", type: "Collaborative" },
+    { name: "Tromsø Study", type: "Collaborative" },
     { name: "COVID-HEART", type: "COVID-Related" },
     { name: "CISCO-19", type: "COVID-Related" },
     { name: "Leiden 85+", type: "Collaborative" },
-    { name: "ELSA Study (Brazil)", type: "Collaborative" },
-    { name: "Moli Sani", type: "Collaborative" },
+    { name: "ELSA-Brasil", type: "Collaborative" },
+    { name: "Moli-sani", type: "Collaborative" },
   ],
 };
 
@@ -481,7 +492,7 @@ export const trainingResources = {
 export const licensingInfo = {
   intro: "The Glasgow Program is available for non-exclusive commercial licensing through the University of Glasgow. The software has been adopted by numerous medical device manufacturers internationally.",
   currentLicensees: [
-    { name: "Draeger", description: "Patient monitoring systems", since: "1981" },
+    { name: "Draeger", description: "Patient monitoring and diagnostic ECG (Glasgow algorithm via the former Siemens ECG business)" },
     { name: "Spacelabs Healthcare", description: "Patient monitoring and diagnostic cardiology", since: "1990s" },
     { name: "Mindray", description: "Patient monitoring and ECG devices", since: "2000s" },
     { name: "Physio-Control (Stryker)", description: "LIFEPAK defibrillator/monitor series", since: "2000s" },
@@ -537,7 +548,7 @@ export const externalResources = [
 
 // Stats - more measured, academic tone
 export const stats = [
-  { value: "20M+", label: "ECGs interpreted annually" },
+  { value: "Millions", label: "ECGs analysed worldwide" },
   { value: "424", label: "Publications" },
   { value: "77", label: "h-index" },
   { value: "53K+", label: "Citations" },
@@ -550,7 +561,7 @@ export const pillars = [
     title: "Clinically Proven",
     points: [
       "Over 50 years of continuous development",
-      "20+ million ECGs interpreted annually",
+      "Millions of ECGs interpreted annually worldwide",
       "Adopted by leading OEMs including Spacelabs, Mindray, and Draeger",
       "Influenced ESC, ACC, and AHA guidelines for acute MI definition",
     ],

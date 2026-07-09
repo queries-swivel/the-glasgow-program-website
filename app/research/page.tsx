@@ -19,7 +19,7 @@ export default function ResearchPage() {
   const professorMacfarlane = teamMembers[0];
 
   return (
-    <main className="pt-20 lg:pt-24">
+    <div className="pt-20 lg:pt-24">
       {/* Header */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="section-container">
@@ -280,6 +280,6 @@ export default function ResearchPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -12,8 +12,8 @@ export function Hero() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background-alt" />
 
-      {/* ECG Animation Background */}
-      <div className="absolute inset-0 opacity-10">
+      {/* ECG rhythm strip — signature clinical motif along the base of the hero */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 sm:h-48 opacity-80">
         <ECGAnimation className="h-full w-full" />
       </div>
 
@@ -144,7 +144,7 @@ export function Hero() {
       </div>
 
       {/* Bottom fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-surface to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-surface to-transparent" />
     </section>
   );
 }
