@@ -19,10 +19,10 @@ export function GlasgowProgramPreview() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-sm font-medium text-primary">
-              Research Output
+              Flagship software
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              The Glasgow Program
+              The Glasgow Program (Uni-G)
             </h2>
             <p className="mt-4 text-lg text-foreground-muted">
               {glasgowProgram.intro}
@@ -47,7 +47,7 @@ export function GlasgowProgramPreview() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/program">
                 <Button>
-                  Learn More
+                  Explore the Program
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -55,6 +55,16 @@ export function GlasgowProgramPreview() {
                 <Button variant="secondary">Licensing Information</Button>
               </Link>
             </div>
+
+            <p className="mt-6 text-sm text-foreground-muted">
+              Actively developed at the University of Glasgow, including ongoing
+              AI research by Dr Ioannis Valasakis (PhD, King&rsquo;s College
+              London).{" "}
+              <Link href="/team" className="text-primary hover:underline">
+                Meet the team
+              </Link>
+              .
+            </p>
           </motion.div>
 
           {/* Licensees */}

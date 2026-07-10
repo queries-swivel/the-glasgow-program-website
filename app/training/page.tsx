@@ -300,8 +300,8 @@ export default function TrainingPage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/services/clinical-trials">
-                <Button variant="secondary">Clinical Trials Support</Button>
+              <Link href="/services/core-lab">
+                <Button variant="secondary">ECG Core Lab &amp; Trials</Button>
               </Link>
             </div>
           </div>
