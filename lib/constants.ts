@@ -38,12 +38,11 @@ export type TeamMember = {
 
 export const navigation = {
   main: [
-    { name: "About", href: "#footer" },
-    { name: "Research", href: "/research" },
     { name: "Glasgow Program", href: "/program" },
+    { name: "Licensing", href: "/services/licensing" },
     { name: "Services", href: "/services" },
+    { name: "Research", href: "/research" },
     { name: "Publications", href: "/publications" },
-    { name: "Training", href: "/training" },
     { name: "Team", href: "/team" },
   ],
   solutions: [
@@ -59,7 +58,7 @@ export const navigation = {
     },
     {
       name: "Clinical Research & Trials",
-      href: "/services/clinical-trials",
+      href: "/services/core-lab",
       description: "ISO 9001:2015 ECG Core Lab services for multicentre studies.",
     },
     {
@@ -69,9 +68,8 @@ export const navigation = {
     },
   ],
   services: [
-    { name: "ECG Core Lab", href: "/services/core-lab", description: "Centralised ECG processing for clinical trials" },
-    { name: "Clinical Trials", href: "/services/clinical-trials", description: "ISO 9001:2015 certified trial support" },
-    { name: "Licensing", href: "/services/licensing", description: "Non-exclusive licensing through the University" },
+    { name: "ECG Core Lab & Trials", href: "/services/core-lab", description: "Centralised ECG processing and clinical-trial support" },
+    { name: "Training", href: "/training", description: "ECG recording guides, electrode placement, and courses" },
   ],
   footer: [
     {
@@ -94,8 +92,7 @@ export const navigation = {
     {
       title: "Services",
       links: [
-        { name: "ECG Core Lab", href: "/services/core-lab" },
-        { name: "Clinical Trials", href: "/services/clinical-trials" },
+        { name: "ECG Core Lab & Trials", href: "/services/core-lab" },
         { name: "Training Resources", href: "/training" },
       ],
     },
@@ -261,10 +258,10 @@ export const teamMembers: TeamMember[] = [
     bio: "Technical support for ECG analysis systems and clinical trial infrastructure.",
   },
   {
-    name: "Ioannis Valasakis",
-    titles: "PhD",
+    name: "Dr Ioannis Valasakis",
+    titles: "PhD, King's College London",
     role: "Research Software Engineer",
-    bio: "Researches and develops AI algorithms for ECG analysis, extending AI-enabled functionality within the Glasgow Program.",
+    bio: "A Research Software Engineer at the University of Glasgow, he researches and develops AI algorithms for ECG analysis, extending AI-enabled functionality within the Glasgow Program.",
   },
 ];
 
@@ -511,6 +508,76 @@ export const licensingInfo = {
   },
 };
 
+// ── Commercial / integration content for the licensing hub ──────────────────
+// PLACEHOLDER scaffolding. Every value of "To be confirmed" (TBC_VALUE) must be
+// supplied and verified by the Electrocardiology Section before publication.
+// Pricing is intentionally NOT published online. Do not assert regulatory
+// clearances without a documented source.
+export const TBC_VALUE = "To be confirmed";
+
+export const regulatoryStatus = {
+  // Standards the program is built to — already asserted elsewhere on the site.
+  standards: [
+    "IEC 60601-2-51 — requirements for computerised ECG analysis",
+    "IEC 60601-2-25 — requirements for electrocardiographs",
+    "ISO 9001:2015 — quality management, certified since 2003",
+  ],
+  // Market clearances — MUST be confirmed by the Section. Do not assert.
+  clearances: [
+    { market: "United States — FDA", status: TBC_VALUE },
+    { market: "European Union — CE (MDR)", status: TBC_VALUE },
+    { market: "United Kingdom — UKCA", status: TBC_VALUE },
+  ],
+  note: "Marketing authorisation for a finished device is held by the manufacturer that integrates the Glasgow Program. The regulatory position above must be confirmed with the Section before it is relied upon.",
+};
+
+export const integrationSpec = {
+  input: [
+    { label: "Signal", value: "Standard 12-lead ECG" },
+    { label: "Sampling rate", value: TBC_VALUE },
+    { label: "Resolution & bandwidth", value: TBC_VALUE },
+    { label: "Recording duration", value: TBC_VALUE },
+  ],
+  output: [
+    { label: "Interpretation", value: "Coded diagnostic statements, multiple languages" },
+    { label: "Measurements", value: "Intervals, amplitudes, and axes (global and per-lead)" },
+    { label: "Serial comparison", value: "Supported" },
+    { label: "Output formats", value: TBC_VALUE },
+  ],
+  platform: [
+    { label: "Delivery", value: "Licensed software library / SDK" },
+    { label: "Supported platforms", value: TBC_VALUE },
+    { label: "Footprint", value: TBC_VALUE },
+  ],
+};
+
+export const licensingProcess = [
+  { step: "Enquiry", description: "Share your device class, target markets, and expected volumes." },
+  { step: "Technical review", description: "We provide the integration datasheet and confirm platform fit." },
+  { step: "Licence agreement", description: "A non-exclusive licence is executed through the University of Glasgow." },
+  { step: "Integration & validation", description: "Engineering support during integration and conformance testing." },
+];
+
+// Dedicated contact routes. Addresses are TBC placeholders for role inboxes, so we
+// never ship a personal email as the commercial or collaboration front door.
+export const contactRoutes = [
+  {
+    title: "Licensing & manufacturers",
+    description: "Commercial licensing for device manufacturers and OEMs.",
+    email: TBC_VALUE,
+  },
+  {
+    title: "Research collaboration",
+    description: "Academic partnerships, shared datasets, and co-authored studies.",
+    email: TBC_VALUE,
+  },
+  {
+    title: "ECG Core Lab & trials",
+    description: "Central ECG processing and endpoint adjudication for studies.",
+    email: TBC_VALUE,
+  },
+];
+
 // External resources and links
 export const externalResources = [
   {
@@ -605,7 +672,7 @@ export const useCases = [
     category: "Research",
     headline: "ECG Core Lab services",
     description: "Centralised ECG processing and serial comparison for research studies.",
-    href: "/services/clinical-trials",
+    href: "/services/core-lab",
   },
 ];
 

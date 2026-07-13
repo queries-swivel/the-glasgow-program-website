@@ -24,7 +24,7 @@ export default function ProgramPage() {
         <div className="section-container">
           <div className="max-w-3xl">
             <span className="text-sm font-medium text-primary">
-              Research Output
+              Flagship software · Uni-G
             </span>
             <h1 className="mt-2 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
               The Glasgow Program

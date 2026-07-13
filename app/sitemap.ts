@@ -5,12 +5,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
   const lastModified = new Date();
 
-  // Priority tiers matched to the live navigation/IA.
-  const primary = ["", "/research", "/program", "/services", "/publications"];
+  // Priority tiers matched to the live navigation/IA (program-first).
+  const primary = ["", "/program", "/services/licensing", "/research", "/publications"];
   const secondary = [
     "/services/core-lab",
-    "/services/clinical-trials",
-    "/services/licensing",
     "/training",
     "/team",
     "/contact",

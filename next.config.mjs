@@ -8,6 +8,18 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
+  async redirects() {
+    return [
+      // Services hub removed; ECG Core Lab is the primary service landing.
+      { source: "/services", destination: "/services/core-lab", permanent: true },
+      // Clinical Trials merged into the ECG Core Lab page.
+      {
+        source: "/services/clinical-trials",
+        destination: "/services/core-lab",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

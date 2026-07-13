@@ -109,12 +109,12 @@ export function CoreLabPreview() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/services/core-lab">
                 <Button>
-                  Core Lab Services
+                  Core Lab &amp; Trials
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/services/clinical-trials">
-                <Button variant="secondary">Clinical Trials</Button>
+              <Link href="/training">
+                <Button variant="secondary">Training Resources</Button>
               </Link>
             </div>
           </motion.div>

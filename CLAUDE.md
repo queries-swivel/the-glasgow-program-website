@@ -10,11 +10,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 The Electrocardiology Section is part of the Robertson Centre for Biostatistics within the School of Health & Wellbeing at the University of Glasgow. Based at Glasgow Royal Infirmary, the Section has been advancing computerised ECG interpretation for over 50 years under the leadership of Professor Peter Macfarlane CBE.
 
-**Key positioning:**
-- Foreground the research group and Professor Macfarlane's legacy
-- Present the Glasgow Program as mature research output (not a startup product)
-- Maintain academic credibility while explaining commercial licensing
-- Avoid pure B2B/SaaS marketing tone
+**Key positioning (program-first — updated 2026-07-10):**
+- Lead with the Glasgow Program (a.k.a. "Uni-G") as the primary story; the research group and Professor Macfarlane's legacy are the credibility *behind* the program, not the headline
+- Present the Program as mature, validated, internationally licensed software — grounded in 50+ years of research, not a startup product
+- Make the licensing/integration pathway easy to find (it is the primary visitor goal); route research collaboration separately and keep it secondary but credible
+- Maintain academic credibility; avoid startup buzzwords and pure B2B/SaaS marketing tone
 
 ### Design Philosophy
 
@@ -54,10 +54,8 @@ app/
   ├── team/                 # Team members, Professor Macfarlane profile
   ├── contact/              # Contact form and details
   └── services/
-      ├── page.tsx          # Services overview
-      ├── core-lab/         # ECG Core Laboratory (clinical trials)
-      ├── clinical-trials/  # Clinical trials support
-      └── licensing/        # Commercial licensing information
+      ├── core-lab/         # ECG Core Laboratory & Clinical Trials (merged)
+      └── licensing/        # Commercial licensing hub
 components/
   ├── layout/               # NavBar, Footer (with UofG logo)
   ├── sections/             # Page sections (Hero, ResearchAreas, etc.)
@@ -78,18 +76,18 @@ styles/
 ### Site Navigation
 
 ```
-Research          → /research (history, focus areas, certifications)
 Glasgow Program   → /program (features, validation, diagnostic capabilities)
-Services          → /services (dropdown)
-  ├── ECG Core Lab      → /services/core-lab
-  ├── Clinical Trials   → /services/clinical-trials
-  └── Licensing         → /services/licensing
+Licensing         → /services/licensing (commercial hub — promoted to top level)
+Services          → (dropdown)
+  ├── ECG Core Lab & Trials → /services/core-lab
+  └── Training              → /training
+Research          → /research (history, focus areas, certifications)
 Publications      → /publications
-Training          → /training
 Team              → /team
-About             → #footer (scrolls to footer section)
 Contact           → /contact
 ```
+
+Redirects (`next.config.mjs`): `/services` and `/services/clinical-trials` → `/services/core-lab` (Clinical Trials merged into the Core Lab page; the Services hub was removed).
 
 ### Color System
 
@@ -192,7 +190,7 @@ The site content is cross-referenced against legacy UofG pages:
 - Startup buzzwords ("revolutionize", "disrupt", "cutting-edge")
 - Vague marketing claims without evidence
 - Pure B2B sales language
-- Treating the Glasgow Program as a standalone product divorced from research
+- Treating the Glasgow Program as divorced from the 50+ years of research that backs it — research credibility is the foundation, not the headline
 - References to Minnesota Code (not part of this program)
 
 ## Repository

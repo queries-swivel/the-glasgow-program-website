@@ -4,7 +4,16 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin } from "lucide-react";
 import { Button, ECGAnimation } from "@/components/ui";
-import { siteConfig, stats } from "@/lib/constants";
+import { siteConfig } from "@/lib/constants";
+
+// Deployment-facing figures for the hero — the Program as adopted software,
+// not the research group's bibliometrics (those live on /publications).
+const heroStats = [
+  { value: "50+ yrs", label: "Continuous development" },
+  { value: "Millions", label: "ECGs analysed worldwide" },
+  { value: "10+", label: "Device manufacturers licensed" },
+  { value: "ISO 9001", label: "Certified since 2003" },
+];
 
 export function Hero() {
   return (
@@ -61,7 +70,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
           >
-            Electrocardiology
+            The Glasgow Program
           </motion.h1>
 
           <motion.p
@@ -70,7 +79,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-4 text-xl text-primary sm:text-2xl font-medium"
           >
-            Over 50 years of research into automated ECG interpretation
+            Automated 12-lead ECG interpretation — validated over 50 years, licensed worldwide
           </motion.p>
 
           <motion.p
@@ -79,10 +88,11 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-6 text-lg text-foreground-muted max-w-3xl"
           >
-            The Electrocardiology Section develops the Glasgow Program for automated ECG analysis,
-            provides ECG Core Laboratory services for research studies, and conducts research into
-            electrocardiographic methods. Our work, led by Professor Peter Macfarlane,
-            has been adopted internationally and contributes to clinical guidelines.
+            Developed at the University of Glasgow and refined over five decades, the Glasgow
+            Program (Uni-G) is embedded in ECG machines, monitors, and defibrillators used
+            internationally. It brings age-, sex-, and ethnicity-specific criteria and transparent,
+            rule-based interpretation to every recording — backed by the Electrocardiology Section
+            led by Professor Peter Macfarlane.
           </motion.p>
 
           {/* Location badge */}
@@ -102,20 +112,20 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-10 flex flex-col sm:flex-row items-start gap-4"
           >
-            <Link href="/research">
+            <Link href="/program">
               <Button size="lg">
-                About Our Research
+                Explore the Program
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/program">
+            <Link href="/services/licensing">
               <Button variant="secondary" size="lg">
-                The Glasgow Program
+                Licensing
               </Button>
             </Link>
-            <Link href="/services/core-lab">
+            <Link href="/research">
               <Button variant="ghost" size="lg">
-                ECG Core Lab
+                Our Research
               </Button>
             </Link>
           </motion.div>
@@ -128,7 +138,7 @@ export function Hero() {
             className="mt-16 pt-8 border-t border-border"
           >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat) => (
+              {heroStats.map((stat) => (
                 <div key={stat.label}>
                   <div className="text-2xl font-semibold text-foreground">
                     {stat.value}
